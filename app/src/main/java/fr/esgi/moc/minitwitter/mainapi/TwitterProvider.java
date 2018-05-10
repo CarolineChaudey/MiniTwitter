@@ -36,9 +36,9 @@ public class TwitterProvider {
     public Call<String> getToken() throws UnsupportedEncodingException {
         String bearerToken = createBearerToken();
         byte[] bytesBearerToken = bearerToken.getBytes("UTF-8");
-        String base64BearerToken = Base64.encodeToString(bytesBearerToken, Base64.DEFAULT);
+        String base64BearerToken = "Basic " + Base64.encodeToString(bytesBearerToken, Base64.NO_WRAP);
 
-        return twitterService.getToken(base64BearerToken);
+        return twitterService.getToken(base64BearerToken.trim(), "grant_type=client_credentials");
     }
 
     private String createBearerToken() {

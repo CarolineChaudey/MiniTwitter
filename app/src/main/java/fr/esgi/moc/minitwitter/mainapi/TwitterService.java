@@ -1,6 +1,7 @@
 package fr.esgi.moc.minitwitter.mainapi;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -11,5 +12,5 @@ import retrofit2.http.POST;
 
 public interface TwitterService {
     @Headers("Content-Type: application/x-www-form-urlencoded;charset=UTF-8")
-    @POST("oauth2/token") Call<String> getToken(@Header("Authorization") String auth);
+    @POST("oauth2/token") Call<String> getToken(@Header("Authorization") String auth, @Body String body);
 }
