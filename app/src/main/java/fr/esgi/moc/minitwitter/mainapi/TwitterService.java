@@ -12,5 +12,6 @@ import retrofit2.http.POST;
 
 public interface TwitterService {
     @Headers("Content-Type: application/x-www-form-urlencoded;charset=UTF-8")
-    @POST("oauth2/token") Call<String> getToken(@Header("Authorization") String auth, @Body String body);
+    @POST("oauth2/token")
+    Call<String> getToken(@Header("Authorization") String auth, @Body String body);
 }

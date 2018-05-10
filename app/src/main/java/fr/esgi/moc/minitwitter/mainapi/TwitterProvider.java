@@ -2,6 +2,7 @@ package fr.esgi.moc.minitwitter.mainapi;
 
 import android.net.Uri;
 import android.util.Base64;
+import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 
@@ -22,6 +23,7 @@ public class TwitterProvider {
     private static final String API_SECRET = "4V0hGqZVPc4Oge8eFDMGphjuWY8TPZ2CzBTlFQ4NhrgjkMhJlc";
 
     private TwitterService twitterService;
+    private static final String TAG = "TwitterProvider";
 
 
     public TwitterProvider() {
@@ -37,6 +39,7 @@ public class TwitterProvider {
         String bearerToken = createBearerToken();
         byte[] bytesBearerToken = bearerToken.getBytes("UTF-8");
         String base64BearerToken = "Basic " + Base64.encodeToString(bytesBearerToken, Base64.NO_WRAP);
+        Log.d(TAG, base64BearerToken.trim());
 
         return twitterService.getToken(base64BearerToken.trim(), "grant_type=client_credentials");
     }
