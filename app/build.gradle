@@ -41,8 +41,6 @@ dependencies {
 
     compile "com.jakewharton:butterknife:$project.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"
-    compile "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
-    compile "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
     compile "com.squareup.okhttp3:okhttp-urlconnection:$project.okhttp3Version"
     compile "com.android.support:recyclerview-v7:$project.appCompatVersion"
     compile('com.twitter.sdk.android:twitter:3.3.0') {

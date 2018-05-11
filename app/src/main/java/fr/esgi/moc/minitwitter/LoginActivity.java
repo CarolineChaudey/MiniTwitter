@@ -1,8 +1,8 @@
 package fr.esgi.moc.minitwitter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -30,13 +30,25 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
-
+                goToSearchView();
             }
 
             @Override
             public void failure(TwitterException exception) {
-                Log.e(TAG, exception.getMessage());
+                throw  exception;
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Pass the activity result to the login button.
+        loginButton.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void goToSearchView() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
