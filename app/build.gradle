@@ -42,7 +42,5 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"
     compile "com.squareup.okhttp3:okhttp-urlconnection:$project.okhttp3Version"
     compile "com.android.support:recyclerview-v7:$project.appCompatVersion"
-    compile('com.twitter.sdk.android:twitter:3.3.0') {
-        transitive = true
-    }
+    compile 'com.twitter.sdk.android:twitter:3.3.0'
 }
