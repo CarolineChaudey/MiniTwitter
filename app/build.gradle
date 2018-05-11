@@ -11,6 +11,10 @@ project.ext {
 
 android {
     compileSdkVersion 27
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "fr.esgi.moc.minitwitter"
         minSdkVersion 16
@@ -41,7 +45,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
     compile "com.squareup.okhttp3:okhttp-urlconnection:$project.okhttp3Version"
     compile "com.android.support:recyclerview-v7:$project.appCompatVersion"
-    compile("com.twitter.sdk.android:twitter:$project.twitterVersion") {
+    compile('com.twitter.sdk.android:twitter:3.3.0') {
         transitive = true
     }
 }
