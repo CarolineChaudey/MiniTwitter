@@ -3,6 +3,7 @@ package fr.esgi.moc.minitwitter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -35,7 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void failure(TwitterException exception) {
-                throw  exception;
+                Log.e(TAG, exception.getMessage());
+                //throw  exception;
             }
         });
     }
